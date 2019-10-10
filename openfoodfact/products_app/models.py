@@ -18,3 +18,8 @@ class User(models.Model):
     user_id = models.IntegerField(max_length=1000,null=False)
     password = models.CharField(max_length=30, null=False)
     email = models.EmailField(max_length=70)
+
+
+class Favorite(models.Model):
+    user_id = models.ManyToManyField(User, related_name='favorites', blank=True)
+    product_id = models.ManyToManyField(Product, blank=True)
