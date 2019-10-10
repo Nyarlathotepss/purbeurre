@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
-    'products_app.apps.StoreConfig',
+    'products_app.apps.ProductsAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,8 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # on utilise l'adaptateur postgresql
         'NAME': 'openfoodfact',  # le nom de notre base de donnees creee precedemment
-        'USER': 'postgres',  # attention : remplacez par votre nom d'utilisateur
-        'PASSWORD': 'python123',
+        'USER': 'nicolas',  # attention : remplacez par votre nom d'utilisateur
+        'PASSWORD': 'python456',
         'HOST': '',
         'PORT': '5432',
     }

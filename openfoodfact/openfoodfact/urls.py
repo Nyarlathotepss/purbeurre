@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
+from products_app import views
 
 urlpatterns = [
-    url('admin/', admin.site.urls),
+    url(r'^$', views.index),
+    url(r'^admin/', admin.site.urls),
+    url(r'^products_app/', include('products_app.urls')),
 ]
 
 if settings.DEBUG:
@@ -26,3 +29,4 @@ if settings.DEBUG:
     urlpatterns = [
         url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
+
