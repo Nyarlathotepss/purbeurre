@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'openfoodfact',  # le nom de notre base de donnees creee precedemment
         'USER': 'nicolas',  # attention : remplacez par votre nom d'utilisateur
         'PASSWORD': 'python456',
-        'HOST': '',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

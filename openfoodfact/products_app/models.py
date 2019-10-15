@@ -4,6 +4,18 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
+    def __str__(self):
+        return self.name
+
+
+class User(models.Model):
+    user_id = models.IntegerField(max_length=1000,null=False)
+    password = models.CharField(max_length=30, null=False)
+    email = models.EmailField(max_length=70)
+
+    def __str__(self):
+        return self.user_id
+
 
 class Product(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -12,14 +24,7 @@ class Product(models.Model):
     store = models.CharField(max_length=30, null=True)
     url = models.URLField(max_length=300, null=False)
     id_category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    favorite = models.ManyToManyField(User, related_name='favorites', blank=True)
 
-
-class User(models.Model):
-    user_id = models.IntegerField(max_length=1000,null=False)
-    password = models.CharField(max_length=30, null=False)
-    email = models.EmailField(max_length=70)
-
-
-class Favorite(models.Model):
-    user_id = models.ManyToManyField(User, related_name='favorites', blank=True)
-    product_id = models.ManyToManyField(Product, blank=True)
+    def __str__(self):
+        return self.name
