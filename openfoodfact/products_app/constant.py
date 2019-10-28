@@ -1,3 +1,3 @@
-list_categories_3 = ["boissons", "snacks-sucres", "produits-laitiers"]  # categories name
-limit_products = 100    # number of product
-url_openfoodfact = 'https://fr.openfoodfacts.org/cgi/search.pl?'
+LIST_CATEGORIES = ["boissons", "snacks-sucres", "produits-laitiers"]  # categories name
+LIMIT_PRODUCTS = 100    # number of product
+URL_OPENFOODFACT = 'https://fr.openfoodfacts.org/cgi/search.pl?'
