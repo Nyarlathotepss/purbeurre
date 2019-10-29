@@ -31,8 +31,8 @@ class Data:
             data.save()
 
     def insert_data_product_into_bdd(self, id_category):
-        for i, product in enumerate(self.info_products):
+        for product in enumerate(self.info_products):
             data = Product(name=product[0], ingredient=product[1],
-                           nutriscore=self.info_products[i][2], store=self.info_products[i][3],
-                           url=self.info_products[i][4], id=id_category)
+                           nutriscore=self.info_products[2], store=self.info_products[3],
+                           url=self.info_products[4], category_id=id_category)
             data.save()
