@@ -11,16 +11,17 @@ class Data:
         list_names_products = []
         while k < constant.LIMIT_PRODUCTS:
             try:
-                self.info_products = (json['products'][k]['product_name'],
-                                      json['products'][k]['ingredients_text_fr'],
-                                      json['products'][k]['nutrition_grade_fr'],
-                                      json['products'][k]['purchase_places'],
-                                      json['products'][k]['url'])
-                if self.info_products[0].lower().strip() in list_names_products:
+                if json['products'][k]['product_name'].lower().strip() in list_names_products:
                     k += 1
                     continue
                 else:
-                    list_names_products.append(self.info_products[0].lower().strip())
+                    self.info_products.append((json['products'][k]['product_name'],
+                                               json['products'][k]['ingredients_text_fr'],
+                                               json['products'][k]['nutrition_grade_fr'],
+                                               json['products'][k]['purchase_places'],
+                                               json['products'][k]['url']))
+                    list_names_products.append(self.info_products[-1][0].lower().strip())
+                    k += 1
             except KeyError:
                 k += 1
                 continue
@@ -31,8 +32,12 @@ class Data:
             data.save()
 
     def insert_data_product_into_bdd(self, id_category):
-        for product in enumerate(self.info_products):
-            data = Product(name=product[0], ingredient=product[1],
-                           nutriscore=self.info_products[2], store=self.info_products[3],
-                           url=self.info_products[4], category_id=id_category)
-            data.save()
+        for product in self.info_products:
+            print(product)
+            try:
+                data = Product(name=product[0], ingredient=product[1],
+                               nutriscore=product[2], store=product[3],
+                               url=product[4], category_id=id_category)
+                data.save()
+            except Exception as e:
+                print(e)

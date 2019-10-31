@@ -13,12 +13,10 @@ class Command(BaseCommand):
         try:
             object_api = api.Api()
             object_data = data.Data()
+            object_data.insert_data_category_into_bdd()  # insert categories names
             for category in constant.LIST_CATEGORIES:
-                object_data.insert_data_category_into_bdd()  # insert categories names
-
                 param = object_api.generate_parameters(category)  # api create parameter
                 my_json = object_api.communication_api(constant.URL_OPENFOODFACT, param)  # api request
-
                 object_data.get_info_from_json(my_json)  # get info from json
                 p = Category.objects.get(name=category)  # get category id from bdd
                 id_category = p.id
