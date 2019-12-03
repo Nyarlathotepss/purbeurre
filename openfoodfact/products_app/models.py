@@ -25,6 +25,7 @@ class Product(models.Model):
     url = models.URLField(max_length=300, null=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     favorite = models.ManyToManyField(User, related_name='favorites', blank=True)
+    image_url = models.URLField(max_length=500, null=False)
 
     def __str__(self):
         return self.name

@@ -19,7 +19,8 @@ class Data:
                                                json['products'][k]['ingredients_text_fr'],
                                                json['products'][k]['nutrition_grade_fr'],
                                                json['products'][k]['purchase_places'],
-                                               json['products'][k]['url']))
+                                               json['products'][k]['url'],
+                                               json['products'][k]['image_url']))
                     list_names_products.append(self.info_products[-1][0].lower().strip())
                     k += 1
             except KeyError:
@@ -37,7 +38,7 @@ class Data:
             try:
                 data = Product(name=product[0], ingredient=product[1],
                                nutriscore=product[2], store=product[3],
-                               url=product[4], category_id=id_category)
+                               url=product[4], category_id=id_category, image_url=product[5])
                 data.save()
             except Exception as e:
                 print(e)

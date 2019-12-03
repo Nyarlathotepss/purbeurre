@@ -4,5 +4,6 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.home)
+    url(r'^result/', views.search_products),
+    url(r'^product/', views.product_page),
 ]
