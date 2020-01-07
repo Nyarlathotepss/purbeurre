@@ -10,7 +10,9 @@
 		</div>
 		<div class="col-lg-8 align-self-baseline">
 		  <h2 class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours</h2>
-		  <input type="text" id="search" class="form-control" placeholder="chercher">
+             <form action= "{% url 'result' %}" method="get" class="form-search">
+                 <input type="text" class="form-control" placeholder="chercher" name="query">
+            </form>
 		</div>
 	  </div>
 	</div>
@@ -34,7 +36,6 @@
                 <img src="../static/products_app/img/ratatouille-portrait.jpg" alt="remy">
             </div>
           </div>
-
     </div>
 {% endblock history %}
 

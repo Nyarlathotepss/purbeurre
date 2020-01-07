@@ -9694,12 +9694,12 @@ header.masthead h1 {
   max-width: 1920px;
 }
 
-#portfolio .container-fluid .portfolio-box {
+.container-fluid .portfolio-box {
   position: relative;
   display: block;
 }
 
-#portfolio .container-fluid .portfolio-box .portfolio-box-caption {
+.container-fluid .portfolio-box .portfolio-box-caption {
   display: flex;
   align-items: center;
   justify-content: center;

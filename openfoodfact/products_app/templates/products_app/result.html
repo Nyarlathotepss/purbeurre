@@ -1,30 +1,36 @@
-{% extends "index.html" %}
+{% extends "products_app/index.html" %}
+{% load static %}
 
 {% block masterhead %}
-    <div id="masterhead_search_product">
-        <div class="container">
-            <div class="row">
-                <div class="col-fluid">
-                    <img src="">
-                    <h2></h2>
-                </div>
-            </div>
+    <div class="container">
+        <div class="row">
+            <h2> Voici le produit sélectionné :</h2>
         </div>
-    </div>
+        <div class="row">
+            <img src={{product.image_url}} id="product_pick">
+        </div>
 {% endblock masterhead %}
 
 {% block content %}
-    <div id="found_products">
+        <link href="{% static "products_app/css/creative_product.css" %}" rel="stylesheet">
+        <script type="text/javascript" src="{% static "products_app/vendor/jquery/nutricode.js" %}"></script>
         <div class="container">
             <div class="row">
-                <p>Vous pouvez remplacer cet aliment par :</p>
-                {% for product in context %}
-                    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                <h2>{{message_to_display}}</h2>
+            </div>
+            <div class="row">
+                {% for product  in alternativ_products %}
+                    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" id="product_show">
+                        <script>
+                            window.onload(nutricodeGetImg({{product.nutriscore}}))
+                        </script>
+                        <a href="https://example.com"><img src={{product.image_url}} id="img_product"> </a>
+                        <p >{{ product.name }} </p>
+                        <button type="submit" class="btn btn-warning" id="button_save"> Enregistrer </button>
                     </div>
                 {% endfor %}
             </div>
         </div>
-    </div>
 {% endblock content %}
 
 
