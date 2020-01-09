@@ -19,9 +19,10 @@ from django.contrib import admin
 from products_app import views
 
 urlpatterns = [
-    url(r'^$', views.home),
+    url(r'^$', views.home, name="home"),
     url(r'^admin/', admin.site.urls),
     url(r'^products_app/', include('products_app.urls')),
+    url('', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:

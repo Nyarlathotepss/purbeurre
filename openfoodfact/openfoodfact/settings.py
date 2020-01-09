@@ -25,6 +25,8 @@ SECRET_KEY = 'g$r=!sin4#4vk$ks3=2%w0v@!@7(39znyt!t2cl#+68_z0isob'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGIN_REDIRECT_URL = 'home'
+
 ALLOWED_HOSTS = []
 
 
@@ -57,7 +59,7 @@ ROOT_URLCONF = 'openfoodfact.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'authentification_app/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
