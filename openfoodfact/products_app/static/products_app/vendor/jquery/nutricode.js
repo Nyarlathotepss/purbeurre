@@ -13,3 +13,5 @@ function nutricodeGetImg(product_nutriscore){
              }
         }
 }
+
+nutricodeGetImg("a")

@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import models
 from django.template import Context, Template
+from products_app.models import Product
 from products_app import search
 
 
@@ -11,46 +12,28 @@ def home(request):
 
 
 def search_products(request):
-    message = None
+    product, message, substitute_products, context = None, None, None, None
+    my_search = search.Search()
     query = request.GET.get('query')
     if not query:
         message = "Votre saisie est vide !"
     else:
-        product = Products.objects.filter(name__icontains=query)  # Insensible a la casse
-        print(product)
-        search_products()
-    if not product.exists():
-        message = "Votre produit n'existe pas dans notre base de donnée !"
+        product = Product.objects.filter(name__icontains=query)  # Insensible a la casse
 
-
+        if not product.exists():
+            message = "Votre produit n'existe pas dans notre base de donnée !"
+        else:
+            product = product.all()[0]
+            print(product)
+            substitute_products = my_search.search_products(product.category, product.name)
+            message = "Voici des produits de subsitution :"
     context = {
-        'product': product,
-        'alternativ_products': list,
-        'message_to_display': message
-    }
-    return render(request, 'result.html', context)
+                'product': product,
+                'alternativ_products': substitute_products,
+                'message_to_display': message
+              }
+    return render(request, 'products_app/result.html', context)
 
 
 def product_page(request):
     return render(request, 'product_page.html')
-
-
-def create_user(request):
-    user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
-
-
-def authenticate(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        # Redirect to a success page.
-        ...
-    else:
-        # Return an 'invalid login' error message.
-        ...
-
-def logout_view(request):
-    logout(request)
-    # Redirect to a success page.

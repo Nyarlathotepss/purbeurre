@@ -1,6 +1,8 @@
 {% extends "products_app/index.html" %}
+{% load static %}
 
 {% block content %}
+<link href="{% static "products_app/css/creative_product.css" %}" rel="stylesheet">
   <h2>Login</h2>
   <form method="post">
     {% csrf_token %}

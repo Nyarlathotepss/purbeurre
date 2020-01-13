@@ -26,6 +26,8 @@ SECRET_KEY = 'g$r=!sin4#4vk$ks3=2%w0v@!@7(39znyt!t2cl#+68_z0isob'
 DEBUG = True
 
 LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
 
 ALLOWED_HOSTS = []
 
@@ -34,13 +36,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth',  # add authentication module
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    'django.contrib.sessions',  # add authentication module
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
-    'products_app.apps.ProductsAppConfig',
+    'products_app.apps.ProductsAppConfig',  # add app product_app
+    'accounts.apps.AccountsConfig',  # add app accounts
 ]
 
 MIDDLEWARE = [
@@ -59,7 +62,7 @@ ROOT_URLCONF = 'openfoodfact.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'authentification_app/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'accounts/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

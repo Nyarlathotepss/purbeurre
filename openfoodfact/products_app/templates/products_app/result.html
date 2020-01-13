@@ -9,11 +9,12 @@
         <div class="row">
             <img src={{product.image_url}} id="product_pick">
         </div>
+    </div>
 {% endblock masterhead %}
 
 {% block content %}
         <link href="{% static "products_app/css/creative_product.css" %}" rel="stylesheet">
-        <script type="text/javascript" src="{% static "products_app/vendor/jquery/nutricode.js" %}"></script>
+        <script type="text/javascript" src="{% static 'products_app/vendor/jquery/nutricode.js' %}"></script>
         <div class="container">
             <div class="row">
                 <h2>{{message_to_display}}</h2>
@@ -22,11 +23,12 @@
                 {% for product  in alternativ_products %}
                     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" id="product_show">
                         <script>
-                            window.onload(nutricodeGetImg({{product.nutriscore}}))
+                            nutricodeGetImg({{product.nutriscore}})
                         </script>
                         <a href="https://example.com"><img src={{product.image_url}} id="img_product"> </a>
                         <p >{{ product.name }} </p>
                         <button type="submit" class="btn btn-warning" id="button_save"> Enregistrer </button>
+
                     </div>
                 {% endfor %}
             </div>
