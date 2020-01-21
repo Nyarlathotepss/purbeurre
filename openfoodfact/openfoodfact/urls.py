@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^products_app/', include('products_app.urls')),
     url('accounts/', include('django.contrib.auth.urls')),
-    url('accounts/', include('accounts.urls')),
+    url(r'^accounts/', include('accounts.urls')),
 ]
 
 if settings.DEBUG:

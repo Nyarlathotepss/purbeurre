@@ -1,0 +1,14 @@
+{% extends "products_app/index.html" %}
+{% load static %}
+
+{% block content %}
+<link href="{% static "products_app/css/creative_product.css" %}" rel="stylesheet">
+{% if user.is_authenticated %}
+    <p>Bienvenue {{ user.username }} !</p>
+{% else %}
+    <p>Vous n'êtes pas identifié !</p>
+    <p><a href="{% url 'signup' %}"></a></p>
+
+{% endif %}
+
+{% endblock %}

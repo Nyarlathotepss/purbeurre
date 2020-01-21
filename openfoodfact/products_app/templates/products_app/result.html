@@ -14,21 +14,24 @@
 
 {% block content %}
         <link href="{% static "products_app/css/creative_product.css" %}" rel="stylesheet">
-        <script type="text/javascript" src="{% static 'products_app/vendor/jquery/nutricode.js' %}"></script>
         <div class="container">
             <div class="row">
-                <h2>{{message_to_display}}</h2>
+                <h2 id="message_to_display">{{message_to_display}} </h2>
             </div>
             <div class="row">
+                {% load static %}
+                {% get_static_prefix as STATIC_PREFIX %}
                 {% for product  in alternativ_products %}
                     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" id="product_show">
-                        <script>
-                            nutricodeGetImg({{product.nutriscore}})
-                        </script>
                         <a href="https://example.com"><img src={{product.image_url}} id="img_product"> </a>
                         <p >{{ product.name }} </p>
-                        <button type="submit" class="btn btn-warning" id="button_save"> Enregistrer </button>
-
+                        <button type="button" class="btn btn-warning" id="button_save_{{product.id}}"> Enregistrer </button>
+                        {% for code in nutricode_list %}
+                            {% if code == product.nutriscore %}
+                                <p>{{ product.id }}</p>
+                                <img src="{{ STATIC_PREFIX }}products_app/img/nutricode/{{code}}.png" id="nutricode" >
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 {% endfor %}
             </div>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -8,15 +9,6 @@ class Category(models.Model):
         return self.name
 
 
-class User(models.Model):
-    user_id = models.IntegerField(null=False)
-    password = models.CharField(max_length=30, null=False)
-    email = models.EmailField(max_length=70)
-
-    def __str__(self):
-        return self.user_id
-
-
 class Product(models.Model):
     name = models.CharField(max_length=100, unique=True)
     ingredient = models.TextField(max_length=300, null=True)
@@ -24,8 +16,15 @@ class Product(models.Model):
     store = models.CharField(max_length=200, null=True)
     url = models.URLField(max_length=300, null=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    favorite = models.ManyToManyField(User, related_name='favorites', blank=True)
     image_url = models.URLField(max_length=500, null=False)
 
     def __str__(self):
         return self.name
+
+
+class Favorite(models.Model):
+    user = models.ManyToManyField(User, related_name='Users', blank=True)
+    product = models.ManyToManyField(Product, related_name='Products', blank=True)
+
+    def __str__(self):
+        return self.user, self.product

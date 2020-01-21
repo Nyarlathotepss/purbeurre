@@ -1,5 +1,14 @@
-h2{
-    padding-bottom: 2%;
+#message_to_display{
+    padding-bottom: 12%;
+}
+
+
+/* Nutricode img *****************/
+
+#nutricode {
+    position: relative;
+    bottom: 80%;
+    size: 60%:
 }
 
 /* Masterhead block ******************/
@@ -25,8 +34,8 @@ h2{
 }
 
 #img_product {
-    max-width: 75%;
-	height: 50%;
+    max-width: 200px;
+	height: 300px;
 	display: block;
 	margin-left: auto;
     margin-right: auto;
