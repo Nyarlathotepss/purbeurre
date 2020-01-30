@@ -19,7 +19,7 @@ class Product(models.Model):
     image_url = models.URLField(max_length=500, null=False)
 
     def __str__(self):
-        return self.name
+        return self.category, self.name
 
 
 class Favorite(models.Model):
