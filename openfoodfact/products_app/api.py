@@ -4,12 +4,16 @@ from products_app import constant
 
 class Api:
     """Communicate with API"""
-    def communication_api(self, url, dict_parameters):
-        """got .json from api"""
-        r = requests.get(url, dict_parameters)
-        return r.json()
 
-    def generate_parameters(self, category):
+    @staticmethod
+    def communication_api(url, dict_parameters):
+        """ got .json from api openfoodfact """
+        request = requests.get(url, dict_parameters)
+        return request.json()
+
+    @staticmethod
+    def generate_parameters(category):
+        """ generate parameters of request """
         param_url = {'action': 'process',
                      'tagtype_0': 'categories',
                      'tag_contains_0': 'contains',
