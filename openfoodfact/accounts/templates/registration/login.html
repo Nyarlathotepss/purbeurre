@@ -3,10 +3,17 @@
 
 {% block content %}
 <link href="{% static "products_app/css/creative_product.css" %}" rel="stylesheet">
-  <h2>Login</h2>
+  <h2 id="login">Login</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Login</button>
+    <button type="submit" id="button_login">Login</button>
   </form>
+
+<div class="row">
+  <div id="no-account">
+    <p> You do not have an account ?     <a title="Click here" href="{% url 'signup' %}"> Click here </a></p>
+  </div>
+</div>
+
 {% endblock %}
