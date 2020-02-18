@@ -45,11 +45,7 @@
           </li>
           <li class="nav-item">
             {% if user.is_authenticated %}
-            <a class="nav-link " href="">
-              <img src=" {% static "products_app/img/carrot.png" %}" width="50" height="50" alt="Mes aliments">
-            </a>
-            {% else %}
-            <a class="nav-link " href="{% url 'login' %}">
+            <a class="nav-link " href="{% url 'favorites' %}">
               <img src=" {% static "products_app/img/carrot.png" %}" width="50" height="50" alt="Mes aliments">
             </a>
             {% endif %}
@@ -57,7 +53,7 @@
           <li class="nav-item">
             <a class="nav-link " href="{% url 'logout' %}">
               {% if user.is_authenticated %}
-                <img src=" {% static "products_app/img/logout.png" %}" width="50" height="50" alt="Déconnexion">
+                <img src=" {% static "products_app/img/logout.png" %}" width="50" height="50" alt="Déconnexion" id="logout">
               {% endif %}
             </a>
           </li>
@@ -76,10 +72,16 @@
     {% endblock content %}
   </div>
 
+  <div id="signup">
+    {% block signup %}
+    {% endblock signup %}
+  </div>
+
   <div id="history">
     {% block history %}
     {% endblock history %}
   </div>
+  <hr>
 
   <div id="contact">
     {% block contact %}
@@ -87,10 +89,10 @@
   </div>
   <!-- Footer -->
   <footer class="bg-light py-5">
-    <div class="container">
-      <div class="small text-center text-muted">Copyright &copy; 2019 - Start Bootstrap</div>
-    </div>
-
+        <div class="footer-copyright text-white text-center py-3">
+          <a href="">Mentions Légales - </a>
+          <a href="{% url 'home'%}">Contact</a>
+      </div>
   </footer>
 
 </body>

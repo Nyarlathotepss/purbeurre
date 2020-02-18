@@ -7,15 +7,39 @@
             <h2> Voici le produit sélectionné :</h2>
         </div>
         <div class="row">
-            <img src={{product.image_url}} id="product_pick">
+            {% for product  in product %}
+                <img src={{product.image_url}} id="product_to_show">
+            {% endfor %}
         </div>
+        <hr>
     </div>
 {% endblock masterhead %}
 
 {% block content %}
+    {% get_static_prefix as STATIC_PREFIX %}
         <link href="{% static "products_app/css/creative_product.css" %}" rel="stylesheet">
         <div class="container">
             <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    {% for product  in product %}
+                    <img src="{{STATIC_PREFIX}}products_app/img/nutriscore/nutriscore_{{product.nutriscore}}.png" id="nutriscore">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div id="100g">
+
+                        <p>
+                        <h3>Repères nutritionnels pour 100 g :</h3>
+                        Sucre : {{product.sugars_100g}} <br>
+                        Graisse : {{product.fat_100g}} <br>
+                        Graisse saturés : {{product.saturated_fat_100g}} <br>
+                        Sel : {{product.salt_100g}}
+                        </p>
+                    </div>
+                </div>
+                <div class="row" id="link_off">
+                    <a href={{product.url}}>Voir la fiche d'OpenFoodFacts</a>
+                </div>
+                {% endfor %}
             </div>
         </div>
 {% endblock content %}

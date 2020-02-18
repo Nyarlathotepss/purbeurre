@@ -2,14 +2,11 @@
 {% load static %}
 
 {% block masterhead %}
-    {% if product %}
+    {% if products %}
 
         <div class="container">
             <div class="row">
-                <h2> Voici le produit sélectionné :</h2>
-            </div>
-            <div class="row">
-                <img src={{product.image_url}} id="product_pick">
+                <h2> Voici les produits que vous avez sauvegardés :</h2>
             </div>
             <hr>
         </div>
@@ -23,26 +20,15 @@
         <link href="{% static "products_app/css/creative_product.css" %}" rel="stylesheet">
         <div class="container">
             <div class="row">
-                <h2 id="message_to_display">{{message_to_display}} </h2>
-            </div>
-            <div class="row">
+
                 {% load static %}
                 {% get_static_prefix as STATIC_PREFIX %}
 
-                {% for product  in alternativ_products %}
+                {% for product  in products %}
 
                     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" id="product_show">
-
                         <a href="{% url 'product_page' product.id %}"><img src={{product.image_url}} id="img_product"></a>
                         <p >{{ product.name }}</p>
-
-                        <form action= "{% url 'product_save' %}" method="POST" >
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <input type="hidden" value={{product.id}} name="product_id">
-                            <button type="submit" class="btn btn-warning" name="button_id_{{product.id}}"> Enregistrer </button>
-                        </form>
-
                         {% for code in nutricode_list %}
                             {% if code == product.nutriscore %}
                                 <img src="{{ STATIC_PREFIX }}products_app/img/nutricode/{{code}}.png" id="nutricode" >
@@ -53,5 +39,3 @@
             </div>
         </div>
 {% endblock content %}
-
-
