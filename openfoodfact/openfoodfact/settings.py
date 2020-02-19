@@ -17,8 +17,6 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
 
 if os.environ.get('ENV') == 'PRODUCTION':
 
@@ -162,3 +160,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 INTERNAL_IPS = ['127.0.0.1']
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
