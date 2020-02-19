@@ -6,12 +6,13 @@
 
         <div class="container">
             <div class="row">
-                <h2> Voici le produit sélectionné :</h2>
+                <h2> Voici le produit sélectionné : {{product.name}}</h2>
             </div>
             <div class="row">
+
                 <img src={{product.image_url}} id="product_pick">
+
             </div>
-            <hr>
         </div>
 
 
@@ -21,11 +22,13 @@
 
 {% block content %}
         <link href="{% static "products_app/css/creative_product.css" %}" rel="stylesheet">
+
         <div class="container">
             <div class="row">
                 <h2 id="message_to_display">{{message_to_display}} </h2>
             </div>
             <div class="row">
+
                 {% load static %}
                 {% get_static_prefix as STATIC_PREFIX %}
 

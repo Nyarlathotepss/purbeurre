@@ -4,14 +4,14 @@
 {% block masterhead %}
     <div class="container">
         <div class="row">
-            <h2> Voici le produit sélectionné :</h2>
+            {% for product  in product %}
+            <h2> Voici le produit sélectionné : {{product.name}}</h2>
         </div>
         <div class="row">
-            {% for product  in product %}
+
                 <img src={{product.image_url}} id="product_to_show">
             {% endfor %}
         </div>
-        <hr>
     </div>
 {% endblock masterhead %}
 

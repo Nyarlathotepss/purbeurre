@@ -1,11 +1,12 @@
 {% extends "products_app/index.html" %}
 {% load static %}
 
-{% block content %}
+{% block masterhead %}
 <link href="{% static "products_app/css/creative_product.css" %}" rel="stylesheet">
+<div class="text-center">
 {% if user.is_authenticated %}
     <p>Bienvenue {{ user.username }} !</p>
-
+</div>
 {% endif %}
 
 {% endblock %}

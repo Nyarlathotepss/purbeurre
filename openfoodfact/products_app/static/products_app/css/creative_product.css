@@ -1,7 +1,30 @@
+#link_off {
+    padding-top: 6%;
+    display:block;
+    width:400px;
+    margin:0 auto;
+}
+
+#no-account {
+     margin: auto;
+     width: 300px;
+     padding-top: 1%
+}
+
 #message_to_display{
     padding-bottom: 12%;
 }
 
+#100g {
+    padding-right:1%
+}
+
+/* Nutriscore img *****************/
+
+#nutriscore {
+        max-width: 35%;
+	    height: auto;
+}
 
 /* Nutricode img *****************/
 
@@ -13,15 +36,33 @@
 
 /* Masterhead block ******************/
 #masterhead {
-    padding-top: 2%;
+    padding-bottom: 3px;
+    background-color: #DE9440;
 }
 
+#login{
+    text-align:center
+}
+
+#button_login{
+    display: block;
+    margin: auto;
+}
 /* content block *********************/
 #content {
-    padding-top: 5%;
+    padding-top: 3%;
 }
 
-/* PRODUCT img,p, ********************/
+h2 {
+    padding-bottom: 4%;
+}
+
+[name^=button_id_] {
+   display: block;
+   margin : auto;
+}
+
+/* PRODUCT img,********************/
 
 #product_pick{
 	margin-left: auto;
@@ -33,6 +74,14 @@
 	height: auto;
 }
 
+#product_show P {
+    text-align: center;
+}
+
+#login_form{
+    text-align: center;
+}
+
 #img_product {
     max-width: 200px;
 	height: 300px;
@@ -41,13 +90,12 @@
     margin-right: auto;
 }
 
-P {
-    text-align: center;
-}
-
-#button_save {
-   display: block;
-   margin : auto;
+#product_to_show {
+    max-width: 200px;
+	height: 300px;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
 }
 
 /* MainNav ********************************/
@@ -66,7 +114,7 @@ P {
 
 #mainNav .navbar-nav .nav-item .nav-link {
   color: #6c757d;
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
   padding: 0.75rem 0;
@@ -116,4 +164,12 @@ P {
   right: 0;
   left: 0;
   z-index: 1030;
+}
+
+#signup {
+    padding-bottom: 8%;
+}
+
+#id_username {
+    text-align: left;
 }

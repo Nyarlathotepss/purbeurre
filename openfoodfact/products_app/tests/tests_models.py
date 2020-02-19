@@ -13,12 +13,6 @@ class ModelTest(TestCase):
                                          salt_100g='0', sugars_100g='10', ingredient=None)
         product.save()
 
-    def test_product_ingredient_label(self):
-        """ Check the label name"""
-        category = Category.objects.get(pk='1')
-        field_label = category._meta.get_field('ingredient').verbose_name
-        self.assertEquals(field_label, 'ingredient')
-
     def test_category_name_label(self):
         """ Check the label name"""
         category = Category.objects.get(pk='1')
@@ -60,6 +54,11 @@ class ModelTest(TestCase):
         product = Product.objects.get(id=1)
         max_length = product._meta.get_field('url').max_length
         self.assertEquals(max_length, 300)
+
+    def test_product_ingredient_label(self):
+        product = Product.objects.get(pk='1')
+        field_label = product._meta.get_field('ingredient').verbose_name
+        self.assertEquals(field_label, 'ingredient')
 
     def test_product_category_label(self):
         product = Product.objects.get(id=1)

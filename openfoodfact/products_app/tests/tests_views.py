@@ -24,7 +24,7 @@ class ProductAppTest(TestCase):
     def test_product_saved_authenticated_user_view(self):
         self.client.login(username="julien", password="password")
         response = self.client.get('/products_app/product_save/')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
     def test_product_saved_unauthenticated_user_view(self):
         response = self.client.get('/products_app/product_save/')
@@ -41,18 +41,12 @@ class ProductAppTest(TestCase):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
-    def test_user_account_authenticated_user(self):
-        self.client.login(username="julien", password="password")
-        response = self.client.get('accounts/user_account/')
+    def test_login(self):
+        response = self.client.get('/accounts/login/')
         self.assertEqual(response.status_code, 200)
 
-    def test_user_account_unauthenticated_user(self):
+    def test_login_authenticated(self):
         self.client.login(username="julien", password="password")
-        self.client.logout()
-        response = self.client.get('/accounts/user_account/')
-        self.assertEqual(response.status_code, 302)
-
-    def test_login(self):
         response = self.client.get('/accounts/login/')
         self.assertEqual(response.status_code, 200)
 
@@ -69,7 +63,11 @@ class ProductAppTest(TestCase):
     def test_favorites(self):
         self.client.login(username="julien", password="password")
         response = self.client.get('/products_app/favorites/')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
+
+    def test_page_product(self):
+        response = self.client.get('/products_app/product_number/1')
+        self.assertEqual(response.status_code, 301)
 
     def test_user_connection(self):
         c = Client()
