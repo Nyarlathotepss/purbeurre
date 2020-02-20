@@ -46,7 +46,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 
-ALLOWED_HOSTS = ['openfoodfacts.herokuapp.com']
+ALLOWED_HOSTS = ['openfoodfact.herokuapp.com']
 
 
 # Application definition
