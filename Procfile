@@ -1,1 +1,1 @@
-web: gunicorn openfoodfact.wsgi
+web: gunicorn openfoodfact.openfoodfact.wsgi
