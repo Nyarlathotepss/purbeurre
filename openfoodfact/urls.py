@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
+from products_app import views
 
 urlpatterns = [
-    url(r'^$', include('products_app.urls')),
+    url(r'^$', views.home, name="home"),
     url(r'^admin/', admin.site.urls),
     url(r'^products_app/', include('products_app.urls')),
     url('accounts/', include('django.contrib.auth.urls')),
