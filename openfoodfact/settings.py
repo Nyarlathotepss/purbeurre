@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
-    'products_app.apps.ProductsAppConfig',  # add app product_app
+    'products_app',  # add app product_app
     'accounts.apps.AccountsConfig',  # add app accounts
 ]
 
@@ -107,9 +107,9 @@ WSGI_APPLICATION = 'openfoodfact.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # on utilise l'adaptateur postgresql
-        'NAME': 'openfoodfact',  # le nom de notre base de donnees creee precedemment
-        'USER': 'nicolas',  # attention : remplacez par votre nom d'utilisateur
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'openfoodfact',
+        'USER': 'nicolas',
         'PASSWORD': 'python456',
         'HOST': 'localhost',
         'PORT': '5432',
