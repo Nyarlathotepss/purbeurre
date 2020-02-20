@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
-    'products_app.apps.ProductsAppConfig',  # add app product_app
+    'openfoodfact.products_app.apps.ProductsAppConfig',  # add app product_app
     'accounts.apps.AccountsConfig',  # add app accounts
 ]
 
