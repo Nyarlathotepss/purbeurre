@@ -37,11 +37,11 @@ class PurBeurreTest(unittest.TestCase):
         message = elem_to_check.text
         assert "Login" in message
 
-    def test_search(self):
+    def test_search(self, product_in_db="eau"):
         driver = self.driver
         driver.get("http://127.0.0.1:8000/")
         self.assertIn("Pur Beurre", driver.title)
-        elem = driver.find_element_by_name("query")
+        elem = driver.find_element_by_name(product_in_db)
         elem.send_keys("eau")
         elem.send_keys(Keys.RETURN)
         assert "Votre produit n'existe pas dans notre base de données !" not in driver.page_source
