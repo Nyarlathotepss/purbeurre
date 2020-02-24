@@ -5,7 +5,7 @@ nécessaires à l'aide du fichier requirements.txt présent dans le dépot git.
 
 <a> https://github.com/Nyarlathotepss/OpenFoodFacts-is-back.git
 
-<H2> Mise en place de la bdd postgres 
+<H2> Mise en place de la bdd postgres </H2>
 
 <p>Installation de postgresql
 <p>Création de la base
