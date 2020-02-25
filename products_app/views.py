@@ -73,3 +73,7 @@ def favorites(request):
     else:
         return redirect('login')
 
+
+def law_mention(request):
+    return render(request, 'products_app/law_mention.html')
+
