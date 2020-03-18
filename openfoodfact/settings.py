@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import dj_database_url
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -108,9 +107,9 @@ WSGI_APPLICATION = 'openfoodfact.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'openfoodfact',
-        'USER': 'nicolas',
-        'PASSWORD': 'python456',
+        'NAME': 'purbeurre',
+        'USER': 'nmillet',
+        'PASSWORD': 'python123',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -161,5 +160,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 INTERNAL_IPS = ['127.0.0.1']
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
