@@ -20,13 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g$r=!sin4#4vk$ks3=2%w0v@!@7(39znyt!t2cl#+68_z0isob'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('ENV') == 'PRODUCTION':
-    DEBUG = False
-else:
-    DEBUG = True
+DEBUG = False
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
@@ -95,10 +92,9 @@ DATABASES = {
     }
 }
 
-if os.environ.get('ENV') == 'PRODUCTION':
-    # ...
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -137,10 +133,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-if os.environ.get('ENV') == 'PRODUCTION':
-
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-    print(STATIC_ROOT)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+print(STATIC_ROOT)
 
 STATIC_URL = '/static/'
 INTERNAL_IPS = ['127.0.0.1']
