@@ -16,11 +16,6 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-if os.environ.get('ENV') == 'PRODUCTION':
-
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
-    print(STATIC_ROOT)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -142,6 +137,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/staticfiles/'
+if os.environ.get('ENV') == 'PRODUCTION':
+
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+    print(STATIC_ROOT)
+
+STATIC_URL = '/static/'
 INTERNAL_IPS = ['127.0.0.1']
 
