@@ -4,3 +4,4 @@ venv/
 static/
 settings/production.py
 
+/.travis.yml
