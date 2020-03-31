@@ -8,5 +8,9 @@ before_script:
 services:
   - postgresql
 
+branches:
+  only:
+    - staging
+
 script:
   - ./manage.py test
