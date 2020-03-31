@@ -13,4 +13,4 @@ branches:
     - staging
 
 script:
-  - ./manage.py test
+  - sudo python manage.py test
