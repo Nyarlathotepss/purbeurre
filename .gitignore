@@ -3,5 +3,3 @@ __pycache__/
 venv/
 static/
 settings/production.py
-
-/.travis.yml
