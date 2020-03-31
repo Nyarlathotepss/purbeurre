@@ -87,11 +87,11 @@ WSGI_APPLICATION = 'openfoodfact.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'purbeurre',
-        'USER': 'nmillet',
-        'PASSWORD': 'python123',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USERNAME'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
