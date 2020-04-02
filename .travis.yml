@@ -8,9 +8,5 @@ before_script:
 services:
   - postgresql
 
-branches:
-  only:
-    - staging
-
 script:
   - sudo python manage.py test
