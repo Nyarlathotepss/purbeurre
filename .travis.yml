@@ -10,4 +10,4 @@ services:
 
 script:
   - chmod +x manage.py
-  - sudo ./manage.py test
+  - sudo python manage.py test
