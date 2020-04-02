@@ -9,4 +9,5 @@ services:
   - postgresql
 
 script:
-  - sudo python3 manage.py test
+  - chmod +x manage.py
+  - sudo ./manage.py test
