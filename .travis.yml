@@ -9,4 +9,5 @@ services:
   - postgresql
 
 script:
+  - chmod +x manage.py
   - python manage.py test
