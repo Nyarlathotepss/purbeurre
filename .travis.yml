@@ -9,4 +9,4 @@ services:
   - postgresql
 
 script:
-  - sudo python manage.py test
+  - python manage.py test
