@@ -10,5 +10,5 @@ services:
   - postgresql
 
 script:
-  - sudo python manage.py initdb
-  - sudo python manage.py test
+  - ./manage.py initdb
+  - ./python manage.py test
