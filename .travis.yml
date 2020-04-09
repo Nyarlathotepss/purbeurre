@@ -8,10 +8,11 @@ before_script:
   - psql -c "CREATE USER nmillet WITH PASSWORD 'python123'"
   - psql -c "GRANT ALL PRIVILEGES ON DATABASE purbeurre TO nmillet"
   - sudo chmod +x ./manage.py
+  - ./manage.py migrate
+  - ./manage.py initdb
 
 services:
   - postgresql
 
 script:
-  - ./manage.py initdb
   - ./manage.py test
