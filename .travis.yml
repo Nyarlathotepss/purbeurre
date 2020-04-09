@@ -5,8 +5,8 @@ python:
 before_script:
   - pip install -r requirements.txt
   - psql -c "CREATE DATABASE purbeurre;" -U postgres
-  - psql "CREATE USER nmillet WITH PASSWORD mypassword"
-  - psql "GRANT ALL PRIVILEGES ON DATABASE purbeurre TO nmillet"
+  - psql -c "CREATE USER nmillet WITH PASSWORD mypassword"; -U nmillet
+  - psql -c "GRANT ALL PRIVILEGES ON DATABASE purbeurre TO nmillet"
   - sudo chmod +x ./manage.py
 
 services:
