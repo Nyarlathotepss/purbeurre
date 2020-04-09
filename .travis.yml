@@ -5,6 +5,7 @@ python:
 before_script:
   - pip install -r requirements.txt
   - psql -c "CREATE DATABASE purbeurre;" -U postgres
+  - sudo chmod +x ./manage.py
 
 services:
   - postgresql
