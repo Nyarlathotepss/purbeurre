@@ -22,4 +22,5 @@ services:
   - postgresql
 
 script:
+  - ./manage.py runserver
   - ./manage.py test
