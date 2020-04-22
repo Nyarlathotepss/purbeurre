@@ -1,16 +1,35 @@
-import unittest
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.options import Options
+from django.test import LiveServerTestCase
+from selenium.webdriver.firefox.webdriver import WebDriver
 
 
-class PurBeurreTest(unittest.TestCase):
+class MySeleniumTests(LiveServerTestCase):
 
-    def setUp(self):
-        options = Options()
-        options.headless = True
-        self.driver = webdriver.Firefox(options=options)
+    @classmethod
+    def setUpClass(cls):
+        super(MySeleniumTests, cls).setUpClass()
+        cls.selenium = WebDriver()
 
+    @classmethod
+    def tearDownClass(cls):
+        cls.selenium.quit()
+        super(MySeleniumTests, cls).tearDownClass()
+
+    def test_login(self, username="leonardo37", password="davinci37"):
+
+        self.selenium.get("http://127.0.0.1:8000/accounts/login/")
+        self.selenium.find_element_by_id('logo').is_displayed()
+        username_input = self.selenium.find_element_by_name("username")
+        username_input.send_keys(username)
+        password_input = self.selenium.find_element_by_name("password")
+        password_input.send_keys(password)
+        self.selenium.find_element_by_id("button_login").click()
+        self.selenium.implicitly_wait(3)
+        self.selenium.find_element_by_id("colette").is_displayed()
+        self.selenium.implicitly_wait(3)  # seconds
+        self.selenium.find_element_by_id("logout").is_displayed()  # check if logout img is displayed
+
+
+"""
     def test_login(self, username="leonardo37", password="davinci37"):
         driver = self.driver
         driver.get("http://127.0.0.1:8000/accounts/login/")
@@ -79,3 +98,4 @@ class PurBeurreTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+"""

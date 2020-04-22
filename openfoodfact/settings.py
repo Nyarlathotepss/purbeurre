@@ -32,7 +32,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 
-ALLOWED_HOSTS = ['139.59.144.22']
+ALLOWED_HOSTS = ['139.59.144.22', 'localhost', '127.0.0.1']
 
 
 # Application definition
