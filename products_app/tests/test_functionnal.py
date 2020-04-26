@@ -2,13 +2,16 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.common.keys import Keys
 from products_app.models import User, Product, Category
+from selenium.webdriver.firefox.options import Options
 
 
 class MySeleniumTests(StaticLiveServerTestCase):
 
     def setUp(self):
         super(MySeleniumTests, self).setUp()
-        self.selenium = WebDriver()
+        options = Options()
+        options.headless = True   # option for server without display
+        self.selenium = WebDriver(options=options)
         self.user = User.objects.create_user(username='test', password='Test1234', email='test@test.com',
                                              is_active=True)
         self.category = Category.objects.create(name='boissons')
