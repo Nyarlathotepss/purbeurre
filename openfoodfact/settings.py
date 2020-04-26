@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
+
 ROOT_URLCONF = 'openfoodfact.urls'
 
 TEMPLATES = [
