@@ -56,7 +56,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
         self.selenium.implicitly_wait(1)  # seconds
         self.selenium.find_element_by_name("button_id_2").click()
         self.selenium.implicitly_wait(2)  # seconds
-        self.selenium.find_element_by_id("login_form").is_displayed()
+        self.selenium.find_element_by_id("button_login").is_displayed()
 
     def test_search_with_empty_query(self):
         self.selenium.get('%s%s' % (self.live_server_url, "/"))
