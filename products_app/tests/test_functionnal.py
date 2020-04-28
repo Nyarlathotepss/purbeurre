@@ -10,7 +10,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
     def setUp(self):
         super(MySeleniumTests, self).setUp()
         options = Options()
-        options.headless = True   # option for server without display
+        options.headless = False   # option for server without display
         self.selenium = WebDriver(options=options)
         self.user = User.objects.create_user(username='test', password='Test1234', email='test@test.com',
                                              is_active=True)
@@ -55,8 +55,6 @@ class MySeleniumTests(StaticLiveServerTestCase):
         my_search.send_keys(Keys.RETURN)
         self.selenium.implicitly_wait(1)  # seconds
         self.selenium.find_element_by_name("button_id_2").click()
-        self.selenium.implicitly_wait(1)  # seconds
-        self.selenium.find_element_by_id("login").is_displayed()
 
     def test_search_with_empty_query(self):
         self.selenium.get('%s%s' % (self.live_server_url, "/"))
