@@ -19,6 +19,5 @@ class Command(BaseCommand):
                 my_json = object_api.communication_api(constant.URL_OPENFOODFACT, param)  # api request
                 object_data.get_info_from_json(my_json)  # get info from json
                 object_data.update_data_product_into_bdd()
-
         except Exception as e:
             raise CommandError(e)
