@@ -18,12 +18,19 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from products_app import views
 
+
+def trigger_error(request):
+    """Used to test Sentry error page"""
+    division_by_zero = 1 / 0
+
+
 urlpatterns = [
     url(r'^$', views.home, name="home"),
     url(r'^admin/', admin.site.urls),
     url(r'^products_app/', include('products_app.urls')),
     url('accounts/', include('django.contrib.auth.urls')),
     url(r'^accounts/', include('accounts.urls')),
+    url('sentry-debug/', trigger_error),
 ]
 
 if settings.DEBUG:
